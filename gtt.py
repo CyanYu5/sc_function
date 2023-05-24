@@ -2,6 +2,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def gtt(path,time_start,time_done,Rlist,Rline=0,Rmax:int=0,atd:float=.0,d:list=0,stup:list=0,rg:int=0,title_word:str="GTT",tx:bool=True,delay:float="",shiplist=""):
+    """繪製一張甘特圖，需先開啟圖層!
+
+    Args:
+        path (list[list]): 工件編號list[list],eg:[機台一[1,2,3,-1],機台二[4,5]],<-1代表該機台無此工件>
+        time_start (_type_): 工件開始時間list[list],eg:[[1,3,8],[2,5]]
+        time_done (_type_): 工件結束時間list[list],eg:[[2,7,10],[5,8]]
+        Rlist (_type_): 下方數線表,整數時間點的值[1,2,2,3,2 ,1,3,2,2,3]. Defaults to 0.
+        Rline (int, optional): 數線表上限值eg:3. Defaults to 0.
+        Rmax (int, optional): _description_. Defaults to 0.
+        atd (float, optional): _description_. Defaults to .0.
+        d (list, optional): _description_. Defaults to 0.
+        stup (list, optional): _description_. Defaults to 0.
+        rg (int, optional): _description_. Defaults to 0.
+        title_word (str, optional): _description_. Defaults to "GTT".
+        tx (bool, optional): _description_. Defaults to True.
+        delay (float, optional): _description_. Defaults to "".
+        shiplist (str, optional): _description_. Defaults to "".
+    """
+
     machine=len(path)
     jobs=len(path[0])
     for i in range(machine):
